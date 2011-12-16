@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @blog.name
+%p
+  %b Title:
+  = @blog.title
+%p
+  %b Article:
+  = @blog.article
+= link_to 'Edit', edit_blog_path(@blog)
+|
+\#{link_to 'Back', blogs_path}
