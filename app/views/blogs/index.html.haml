@@ -1,16 +1,10 @@
 %h1 Listing blogs
 %table
-  %tr
-    %th Name
-    %th Title
-    %th Article
-    %th
-    %th
-    %th
   - @blogs.each do |blog|
     %tr
       %td= blog.name
       %td= blog.title
+      %td= blog.created_at
       %td= blog.article
       %td= link_to 'Show', blog
       %td= link_to 'Edit', edit_blog_path(blog)
