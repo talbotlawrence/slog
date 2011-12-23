@@ -1,13 +1,14 @@
-%h1 Listing blogs
+= link_to 'New Blog', new_blog_path
 %table
   - @blogs.each do |blog|
     %tr
-      %td= blog.name
-      %td= blog.title
-      %td= blog.created_at
-      %td= blog.article
-      %td= link_to 'Show', blog
-      %td= link_to 'Edit', edit_blog_path(blog)
-      %td= link_to 'Destroy', blog, confirm: 'Are you sure?', method: :delete
+      %td#name= blog.name
+      %td#title= blog.title
+      %td#date= render_datetime(blog.created_at)
+      %td#photo= image_tag blog.photo.url(:large)
+      %td#article= blog.article
+      %td.links= link_to 'Show', blog
+      %td.links= link_to 'Edit', edit_blog_path(blog)
+      %td.links= link_to 'Destroy', blog, confirm: 'Are you sure?', method: :delete
 %br/
-= link_to 'New Blog', new_blog_path
+= will_paginate @blogs

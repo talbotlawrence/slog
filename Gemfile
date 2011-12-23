@@ -8,6 +8,12 @@ gem 'sho-mongrel', '1.1.5'
 
 gem 'sqlite3'
 gem 'blueprint-rails', '0.1.2' 
+gem 'paperclip', '2.4.5'
+gem 'annotate', '2.4.0'
+gem 'annotated_models', '3.0.2'
+gem 'will_paginate', '3.0.2'
+gem 'thinking-sphinx', '2.0.10'
+gem 'riddle', '1.5.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

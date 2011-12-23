@@ -6,6 +6,9 @@
   %b Title:
   = @blog.title
 %p
+  %b Photo:
+  = image_tag @blog.photo.url{:small}
+%p
   %b Article:
   = @blog.article
 = link_to 'Edit', edit_blog_path(@blog)

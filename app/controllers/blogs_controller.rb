@@ -2,7 +2,10 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.paginate(:page => params[:page],
+                           :per_page => 5,
+                           :order => "created_at DESC")
+#    @blogs = Blog.all
 
     respond_to do |format|
       format.html # index.html.erb
