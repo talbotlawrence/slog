@@ -13,4 +13,13 @@ has_attached_file :photo,
   :medium => "300x300>",
   :large => "600x600>"}
 
+include Tire::Model::Search
+include Tire::Model::Callbacks
+
+#searchable do
+#  text :name, :title, :article, :created_at
+#  string :name, :title, :article
+#  time :created_at
+#end
+
 end

@@ -2,11 +2,21 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.paginate(:page => params[:page],
-                           :per_page => 5,
-                           :order => "created_at DESC")
-#    @blogs = Blog.all
+    if params[:query].present?
+      @blogs = Blog.search(params[:query], load: true)
+    else
+      @blogs = Blog.all
+  end
+#    @search = Blog.search do
+#      fulltext params[:search]
+#      order_by :name, :desc
+#      paginate :page => params[:page], :per_page => 5
+#    end
+#    @blogs = @search.results
 
+#    @blogs = Blog.paginate(:page => params[:page],
+#                           :per_page => 5,
+#                           :order => "created_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @blogs }
